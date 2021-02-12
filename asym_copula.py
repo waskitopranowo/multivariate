@@ -30,10 +30,10 @@ def cop_syn_m(typec, u, v, m):
     elif typec == 'clayton':
         C = (u**(-m1*m2) + v**(-m1*m3) - 1)**(-1/m1)
     elif typec == 'frank':
-        p1 = (1 - np.exp(m1))**(-1)
-        p2 = 1 - np.exp(m1*(u**m2))
-        p3 = 1 - np.exp(m1*(v**m3))
-        C = 1/ m1*np.log(1 - p1*p2*p3)
+        p1 = (1 - np.exp(-m1))**(-1)
+        p2 = 1 - np.exp(-m1*(u**m2))
+        p3 = 1 - np.exp(-m1*(v**m3))
+        C = -1/ m1*np.log(1 + p1*p2*p3)
     return C
 
 type1 = 'gumbel'
