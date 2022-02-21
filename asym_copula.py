@@ -39,7 +39,7 @@ def cop_syn_m(typec, u, v, m):
 type1 = 'gumbel'
 type2 = 'clayton'
 
-xy = np.loadtxt('data copula man.txt', skiprows=0)
+xy = np.loadtxt('datarandom1.txt', skiprows=0)
 x1 = xy[:, 0]
 x2 = xy[:, 2]
 
