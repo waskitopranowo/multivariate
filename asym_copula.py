@@ -54,9 +54,12 @@ c1 = 2.05
 c2 = 2.05
 phi = c1+c2
 k = 2/(2 - phi - np.sqrt(phi**2-4*phi))
+delta = 0.0000001
 
 u = x_ecdf(x1)
 v = x_ecdf(x2)
+u = u*(1 - 2*delta) + delta
+v = v*(1 - 2*delta) + delta
 
 Gam1 = np.random.rand(nm)*(maxgam1 - mingam1) + mingam1
 Gam2 = np.random.rand(nm)*(maxgam2 - mingam2) + mingam2
@@ -67,8 +70,8 @@ type = [type1, type2]
 mm = np.vstack((Gam1, Th11, Th12, Gam2))
 
 eps = 7./3 - 4./3 -1
-du = 0.001
-dv = 0.001
+du = delta*1
+dv = delta*1
 
 up = u + du
 up[up > 1] = 1
